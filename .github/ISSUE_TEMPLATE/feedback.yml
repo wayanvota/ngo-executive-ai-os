@@ -1,0 +1,54 @@
+name: Feedback
+description: Share feedback on the assistant kit without posting confidential information.
+title: "[Feedback]: "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking a look. Please do not include real donor, beneficiary, board, staff, financial, legal, or confidential organizational information.
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: What kind of feedback is this?
+      options:
+        - Setup confusion
+        - NGO fundraising workflow
+        - Strategy workflow
+        - Privacy or risk concern
+        - Codex or OpenAI tooling issue
+        - Obsidian or markdown memory issue
+        - Documentation improvement
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What were you trying to do?
+      placeholder: I tried to use the donor CRM review routine for a small NGO with foundation and major donor fundraising.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What was confusing, risky, missing, or wrong?
+      description: Be specific. Sanitized examples are welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+      description: What would make this more useful or safer?
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed real donor, beneficiary, staff, board, financial, legal, and confidential information.
+          required: true
+

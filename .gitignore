@@ -1,0 +1,13 @@
+# Local operating files
+memory/private/*
+!memory/private/README.md
+
+# Obsidian local state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.trash/
+
+# System files
+.DS_Store
+
