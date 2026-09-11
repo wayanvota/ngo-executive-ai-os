@@ -36,9 +36,14 @@
 - Introductions:
 - Governance item:
 
+## Evidence And Source Notes
+
+- Evidence used:
+- Claims that still need sources:
+- Conflicting or stale information:
+
 ## Next Week's Priorities
 
 1.
 2.
 3.
-
