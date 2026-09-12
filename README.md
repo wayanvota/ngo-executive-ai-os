@@ -36,7 +36,7 @@ It is tuned for organizations where the executive is still close to fundraising 
 - `docs/`: setup, privacy, customization, and operating guidance.
 - `examples/`: sanitized examples that show the expected level of detail.
 - `SECURITY.md`: sharing and sensitive-data cautions.
-- `LICENSE.md`: default MIT license, which you should change if you want different terms.
+- `LICENSE`: default MIT license, which you should change if you want different terms.
 
 ## Quick Start
 
@@ -97,3 +97,29 @@ This is an experiment. I may not be able to respond to every issue or act on eve
 ## Design Principle
 
 The assistant should make the executive's decision surface smaller. It should not make the decision disappear.
+
+## Validate A Fresh Copy
+
+The end-to-end harness builds a temporary workspace from the files Git would
+publish, then validates its operating instructions, routines, memory layout,
+templates, links, privacy boundary, and examples.
+
+```bash
+python3 -m unittest -v tests.test_e2e
+```
+
+The suite contains exactly 20 labeled categories: `U01` to `U10` cover setup
+and routine usability; `A01` to `A10` cover accidental secrets, private-memory
+publication, unsafe paths or commands, broken links, missing routine contracts,
+and incomplete distribution copies. It uses the Python standard library and
+does not need an API key, private account, model call, or network access.
+
+To debug one category:
+
+```bash
+python3 -m unittest -v tests.test_e2e.ExecutiveOsE2E.test_a05_relative_markdown_links_resolve
+```
+
+When adding a routine, add its required inputs to the repository, keep explicit
+`Purpose`, `Output`, and `Rules` sections, and extend the corresponding workflow
+assertion. GitHub Actions runs the same fresh-copy suite on every pull request.
